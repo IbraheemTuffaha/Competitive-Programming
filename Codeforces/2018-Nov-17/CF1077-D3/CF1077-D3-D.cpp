@@ -1,3 +1,8 @@
+/*
+  Author: Ibraheem Tuffaha
+  Idea:   - Binary Search the number of copies, suppose result is x,
+            then for every x similar items, you can take one of them.
+*/
 #include <bits/stdc++.h>
 typedef long long ll;
 typedef long double ld;
@@ -18,6 +23,7 @@ int main() {
     scanf("%d", a+i);
     ++f[a[i]];
   }
+  // binary search the number of copies
   int l = 1, r = n + 10, mid, res = -1;
   while(l <= r) {
     int mid = (l+r)/2;
@@ -28,6 +34,8 @@ int main() {
   }
   vector<int> v;
   for(int i=0; i<N; ++i) {
+    // if item frequency is still more than res
+    // take one of them, and remove them
     while(f[i] >= res && k) {
       --k;
       v.push_back(i);
